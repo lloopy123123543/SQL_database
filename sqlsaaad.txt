@@ -1,0 +1,18 @@
+CREATE TABLE Users
+(
+    Id SERIAL PRIMARY KEY,
+    namee CHARACTER VARYING(30),
+    surname CHARACTER VARYING(30),
+	Email CHARACTER VARYING(30)
+);
+CREATE TABLE Blogs(
+	Id SERIAL PRIMARY KEY,
+    blog_name CHARACTER VARYING(30),
+	user_id INTEGER references Users (Id)
+);
+CREATE TABLE Article(
+	Id SERIAL PRIMARY KEY,
+    blog_id INTEGER references Blogs (Id),
+	title CHARACTER VARYING(50),
+	info CHARACTER VARYING(1000)
+);
